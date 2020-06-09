@@ -68,7 +68,11 @@ export type NonNullProps<T> = { [P in keyof T]: NonNull<T[P]> };
 // make all properties non undefined
 export type NonUndefinedProps<T> = { [P in keyof T]-?: NonUndefined<T[P]> };
 
+// make all properties required
 export type RequiredProps<T> = { [P in keyof T]-?: T[P] };
+
+// make all properties non readonly
+export type WritableProps<T> = { -readonly [P in keyof T]: T[P] };
 
 // string | number | symbol
 export type AnyKey = keyof any;
